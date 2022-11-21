@@ -2,10 +2,10 @@
 Summary:             Optimizer for PNG (Portable Network Graphics) files
 Name:                pngcrush
 Version:             1.8.13
-Release:             1
+Release:             2
 License:             zlib
 URL:                 http://pmt.sourceforge.net/%{name}/
-Source0:             https://master.dl.sourceforge.net/project/pmt/pngcrunloadh/1.8.13/pngcrush-1.8.13-nolib.tar.xz
+Source0:             http://downloads.sourceforge.net/pmt/pngcrush-1.8.13-nolib.tar.xz
 BuildRequires:       docbook-utils gcc libpng-devel pkgconfig zlib-devel
 %description
 pngcrush is a commandline optimizer for PNG (Portable Network Graphics) files.
@@ -31,5 +31,8 @@ gcc %{optflags} $pngflags -lz -o %{name} %{name}.c
 %{_bindir}/%{name}
 
 %changelog
+* Mon Nov 21 2022 wangkai <wangkai385@h-partners.com> - 1.8.13-2
+- Change source url
+
 * Wed Oct 28 2020 jialei <jialei17@huawei.com> - 1.8.13-1
 - package init
