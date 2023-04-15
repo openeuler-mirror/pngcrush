@@ -2,7 +2,7 @@
 Summary:             Optimizer for PNG (Portable Network Graphics) files
 Name:                pngcrush
 Version:             1.8.13
-Release:             2
+Release:             3
 License:             zlib
 URL:                 http://pmt.sourceforge.net/%{name}/
 Source0:             http://downloads.sourceforge.net/pmt/pngcrush-1.8.13-nolib.tar.xz
@@ -20,7 +20,7 @@ tRNS, iCCP, and textual chunks.
 %build
 rm -f z*.h crc32.h deflate.h inf*.h trees.h png*.h # force using system headers
 pngflags=$(pkg-config --cflags --libs libpng)
-gcc %{optflags} $pngflags -lz -o %{name} %{name}.c
+$CC %{optflags} $pngflags -lz -o %{name} %{name}.c
 
 %install
 %{__install} -D -m0755 %{name} %{buildroot}%{_bindir}/%{name}
@@ -31,6 +31,9 @@ gcc %{optflags} $pngflags -lz -o %{name} %{name}.c
 %{_bindir}/%{name}
 
 %changelog
+* Sat Apr 15 2023 Xiaoya Huang <huangxiaoya@iscas.ac.cn> - 1.8.13-3
+- Fix CC compiler support
+
 * Mon Nov 21 2022 wangkai <wangkai385@h-partners.com> - 1.8.13-2
 - Change source url
 
